@@ -1,0 +1,1000 @@
+/* =========================
+   GLOBAL THEME
+========================= */
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+body{
+
+  margin:0;
+
+  background:#f4f9ff;
+
+  font-family:
+  'Segoe UI',
+  Arial,
+  sans-serif;
+
+  color:#1f2937;
+
+}
+
+
+
+.App{
+
+  text-align:center;
+
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+
+.navbar{
+
+  background:
+  linear-gradient(
+  90deg,
+  #e0f2fe,
+  #ffffff
+  )!important;
+
+
+  border-bottom:
+  1px solid #dbeafe;
+
+  padding:15px 30px!important;
+
+}
+
+
+.navbar-brand{
+
+  font-size:24px;
+
+  font-weight:700;
+
+  color:#2563eb!important;
+
+}
+
+
+
+/* =========================
+   CONTAINERS
+========================= */
+
+
+.container{
+
+  padding-top:35px;
+
+  padding-bottom:35px;
+
+  animation:
+  fadeIn .4s ease-in;
+
+}
+
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* =========================
+   CARDS
+========================= */
+
+
+.card{
+
+  background:white!important;
+
+  border:none!important;
+
+  border-radius:22px!important;
+
+
+  box-shadow:
+
+  0 10px 25px
+  rgba(37,99,235,.12);
+
+
+  transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+  transform:
+  translateY(-5px);
+
+  box-shadow:
+
+  0 15px 35px
+  rgba(37,99,235,.18);
+
+}
+
+
+
+/* =========================
+   HERO / DASHBOARD
+========================= */
+
+
+.hero{
+
+background:
+
+linear-gradient(
+135deg,
+#dbeafe,
+#ffffff
+);
+
+
+padding:50px;
+
+border-radius:25px;
+
+}
+
+
+
+/* =========================
+   DOCTOR CARD
+========================= */
+
+
+.doctor-card{
+
+
+background:
+
+linear-gradient(
+135deg,
+#ffffff,
+#eff6ff
+);
+
+
+border-radius:25px;
+
+
+padding:25px;
+
+
+box-shadow:
+
+0 10px 25px
+rgba(0,0,0,.08);
+
+
+transition:.3s;
+
+
+animation:
+show .5s ease;
+
+
+}
+
+
+
+.doctor-card:hover{
+
+
+transform:
+translateY(-8px);
+
+
+}
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+
+
+
+
+/* =========================
+   APPOINTMENTS
+========================= */
+
+
+.appointment-card{
+
+
+background:
+
+linear-gradient(
+135deg,
+#ffffff,
+#f0fdf4
+);
+
+
+border-radius:22px;
+
+
+box-shadow:
+
+0 10px 25px
+rgba(0,0,0,.08);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.appointment-card:hover{
+
+
+transform:
+translateY(-6px);
+
+
+}
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.btn{
+
+
+border-radius:14px!important;
+
+padding:
+
+10px 22px!important;
+
+
+transition:.2s;
+
+font-weight:500;
+
+
+}
+
+
+
+.btn:hover{
+
+transform:
+translateY(-2px);
+
+}
+
+
+
+.btn-primary{
+
+background:#2563eb!important;
+
+border:none!important;
+
+}
+
+
+
+.btn-success{
+
+background:#16a34a!important;
+
+border:none!important;
+
+}
+
+
+
+.btn-danger{
+
+background:#ef4444!important;
+
+border:none!important;
+
+}
+
+
+
+
+
+/* =========================
+   INPUTS
+========================= */
+
+
+input,
+select,
+textarea{
+
+
+border-radius:14px!important;
+
+border:
+
+1px solid #bfdbfe!important;
+
+
+padding:12px!important;
+
+
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+
+outline:none;
+
+
+box-shadow:
+
+0 0 0 4px
+rgba(37,99,235,.15)!important;
+
+
+}
+
+
+
+
+
+/* =========================
+   TABLE
+========================= */
+
+
+.table{
+
+
+background:white;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.table thead{
+
+
+background:#e0f2fe;
+
+
+}
+
+
+table th{
+
+color:#2563eb;
+
+}
+
+
+table td{
+
+vertical-align:middle;
+
+}
+
+
+
+
+/* =========================
+   BADGES
+========================= */
+
+
+.badge{
+
+
+padding:
+
+10px 18px;
+
+
+border-radius:20px;
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+/* =========================
+   DATE PICKER
+========================= */
+
+
+.react-datepicker{
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 30px
+rgba(0,0,0,.15);
+
+
+}
+
+
+
+.react-datepicker__input-container input{
+
+
+width:100%;
+
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+.footer{
+
+
+margin-top:60px;
+
+
+padding:35px;
+
+
+background:
+
+linear-gradient(
+90deg,
+#e0f2fe,
+#ffffff
+);
+
+
+text-align:center;
+
+
+border-top:
+
+1px solid #dbeafe;
+
+
+}
+
+
+
+.footer h5{
+
+color:#2563eb;
+
+}
+
+
+
+
+
+/* =========================
+   LOADING
+========================= */
+
+
+.loading{
+
+
+height:200px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+font-size:25px;
+
+
+color:#2563eb;
+
+
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px){
+
+
+
+.navbar{
+
+
+flex-direction:column;
+
+
+gap:15px;
+
+
+padding:20px!important;
+
+
+}
+
+
+
+.navbar div{
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+width:100%;
+
+
+}
+
+
+
+.navbar .btn{
+
+
+width:100%;
+
+
+margin-top:5px;
+
+
+}
+
+
+
+.card{
+
+margin-bottom:20px;
+
+}
+
+
+
+.doctor-img{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid #fff;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.doctor-card{
+
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.doctor-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(13,110,253,.15);
+
+}
+
+
+
+.table{
+
+
+font-size:13px;
+
+}
+
+
+
+h1{
+
+font-size:28px;
+
+}
+
+
+}
+
+.search-box {
+  border-radius: 30px;
+  padding: 12px 20px;
+  border: 2px solid #dbeafe;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.08);
+  transition: 0.3s;
+}
+
+.search-box:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.25);
+}
+
+.filter-box{
+
+border-radius:30px;
+
+padding:12px;
+
+border:2px solid #dbeafe;
+
+box-shadow:0 8px 20px rgba(0,123,255,.08);
+
+transition:.3s;
+
+}
+
+.filter-box:focus{
+
+border-color:#0d6efd;
+
+box-shadow:0 0 12px rgba(13,110,253,.25);
+
+}
+
+.doctor-profile-card{
+
+background:white;
+
+border-radius:25px;
+
+padding:40px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+animation:show .5s ease;
+
+}
+
+.doctor-profile-image{
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:8px solid #eaf4ff;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.doctor-profile-card h2{
+
+font-weight:700;
+
+}
+
+.doctor-profile-card p{
+
+font-size:17px;
+
+margin-bottom:12px;
+
+}
+
+.doctor-profile-card hr{
+
+margin:25px 0;
+
+}
+
+.doctor-profile-card .btn{
+
+padding:12px 35px;
+
+font-size:18px;
+
+border-radius:30px;
+
+}
+
+.review-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+margin-bottom:40px;
+
+}
+
+.review-item{
+
+padding:15px;
+
+border-radius:15px;
+
+background:#f8fbff;
+
+margin-top:15px;
+
+}
+
+.review-item h5{
+
+margin-bottom:5px;
+
+}
+
+.review-card textarea{
+
+border-radius:15px;
+
+}
+
+.review-card select{
+
+border-radius:12px;
+
+}
+
+.doctor-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.doctor-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.doctor-img{
+
+width:140px;
+
+height:140px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid #eaf4ff;
+
+}
+
+.search-box{
+
+height:50px;
+
+border-radius:25px;
+
+padding-left:20px;
+
+}
+
+.hero{
+
+padding:30px;
+
+background:linear-gradient(135deg,#007bff,#5bc0de);
+
+color:white;
+
+border-radius:20px;
+
+}
+
+.stats-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.stats-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 35px rgba(0,0,0,.15);
+
+}
+
+.stats-card h1{
+
+font-size:55px;
+
+}
+
+.stats-card h2{
+
+font-size:42px;
+
+font-weight:bold;
+
+color:#0d6efd;
+
+}
+
+.stats-card p{
+
+font-size:18px;
+
+margin-top:10px;
+
+color:#555;
+
+}
+
+/* ===========================
+   PROFILE PAGE
+=========================== */
+
+.profile-card{
+    max-width:700px;
+    margin:40px auto;
+    padding:35px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile-title{
+    font-size:36px;
+    font-weight:bold;
+    margin-bottom:20px;
+    color:#333;
+}
+
+.profile-image{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #0d6efd;
+    margin-bottom:20px;
+}
+
+.profile-card .form-control,
+.profile-card .form-select{
+    height:50px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.profile-card textarea{
+    border-radius:10px;
+    resize:none;
+}
+
+.save-btn{
+    width:100%;
+    height:50px;
+    font-size:18px;
+    border-radius:10px;
+    margin-top:10px;
+}
