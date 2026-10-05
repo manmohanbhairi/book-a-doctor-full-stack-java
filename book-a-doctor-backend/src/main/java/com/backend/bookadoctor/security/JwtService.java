@@ -11,11 +11,26 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private final String secretKey =
-            "BookADoctorSecretKeyForJWTAuthentication2026";
+    private final String secretKey;
 
     private final long expirationTime =
             1000 * 60 * 60; // 1 hour
+
+    public JwtService() {
+        this.secretKey = System.getenv("JWT_SECRET");
+
+        if (this.secretKey == null || this.secretKey.isBlank()) {
+            throw new IllegalStateException(
+                    "JWT_SECRET environment variable is not configured"
+            );
+        }
+
+        if (this.secretKey.getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalStateException(
+                    "JWT_SECRET must be at least 32 characters long"
+            );
+        }
+    }
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(
