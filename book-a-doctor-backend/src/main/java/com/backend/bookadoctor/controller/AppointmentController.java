@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "http://localhost:3000")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;
@@ -141,22 +140,13 @@ public class AppointmentController {
                         new RuntimeException(
                                 "Authenticated user not found"));
 
-        /*
-         * Service checks:
-         *
-         * appointment ID
-         * +
-         * logged-in user's ID
-         *
-         * So users cannot cancel someone else's
-         * appointment.
-         */
+        boolean isAdmin = authentication.getAuthorities().stream()
+                .anyMatch(authority ->
+                        authority.getAuthority().equals("ROLE_ADMIN"));
 
-        Appointment cancelledAppointment =
-                appointmentService.cancelAppointment(
-                        id,
-                        user.getId()
-                );
+        Appointment cancelledAppointment = isAdmin
+                ? appointmentService.cancelAppointmentByAdmin(id)
+                : appointmentService.cancelAppointment(id, user.getId());
 
         return ResponseEntity.ok(cancelledAppointment);
     }

@@ -130,10 +130,19 @@ public class AppointmentService {
                                         "Appointment not found or does not belong to you"
                                 ));
 
-        // Change status
-        appointment.setStatus("Cancelled");
+        return markAppointmentCancelled(appointment);
+    }
 
-        // Save changes
+    public Appointment cancelAppointmentByAdmin(Long appointmentId) {
+        Appointment appointment = appointmentRepository.findById(appointmentId)
+                .orElseThrow(() ->
+                        new RuntimeException("Appointment not found"));
+
+        return markAppointmentCancelled(appointment);
+    }
+
+    private Appointment markAppointmentCancelled(Appointment appointment) {
+        appointment.setStatus("Cancelled");
         return appointmentRepository.save(appointment);
     }
 }

@@ -3,6 +3,7 @@ package com.backend.bookadoctor.service;
 import com.backend.bookadoctor.entity.User;
 import com.backend.bookadoctor.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,12 +22,6 @@ public class UserService {
 
     // REGISTER
     public User registerUser(User user) {
-
-        if (userRepository.existsByEmail(user.getEmail())) {
-            throw new RuntimeException(
-                    "Email already registered");
-        }
-
         user.setPassword(
                 passwordEncoder.encode(user.getPassword())
         );
@@ -36,7 +31,14 @@ public class UserService {
         // The client cannot create an admin account.
         user.setRole("user");
 
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalStateException(
+                    "Email already registered",
+                    e
+            );
+        }
     }
 
     // FIND USER BY EMAIL

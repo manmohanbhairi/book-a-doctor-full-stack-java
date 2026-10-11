@@ -11,11 +11,14 @@ function Register() {
     email: "",
     password: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+    if (isSubmitting) return;
 
+    setIsSubmitting(true);
     try {
 
       await API.post("/auth/register", form);
@@ -33,6 +36,8 @@ function Register() {
         "Registration Failed"
       );
 
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -97,8 +102,10 @@ function Register() {
               <button
                 type="submit"
                 className="btn btn-success w-100"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
               >
-                Register
+                {isSubmitting ? "Creating account..." : "Register"}
               </button>
 
             </form>

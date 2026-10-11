@@ -5,6 +5,7 @@ import com.backend.bookadoctor.dto.LoginResponse;
 import com.backend.bookadoctor.entity.User;
 import com.backend.bookadoctor.security.JwtService;
 import com.backend.bookadoctor.service.UserService;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -69,6 +70,20 @@ public class AuthController {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(response);
+
+        } catch (DataIntegrityViolationException e) {
+
+            Map<String, Object> error =
+                    new HashMap<>();
+
+            error.put(
+                    "message",
+                    "Email already registered"
+            );
+
+            return ResponseEntity
+                    .status(HttpStatus.CONFLICT)
+                    .body(error);
 
         } catch (RuntimeException e) {
 
