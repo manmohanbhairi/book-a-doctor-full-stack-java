@@ -1,6 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
+import PasswordField from "../components/PasswordField";
 
 function Register() {
 
@@ -85,18 +86,15 @@ function Register() {
                 required
               />
 
-              <input
-                className="form-control mb-3"
-                type="password"
-                placeholder="Password"
+              <PasswordField
                 value={form.password}
+                autoComplete="new-password"
                 onChange={(e) =>
                   setForm({
                     ...form,
                     password: e.target.value
                   })
                 }
-                required
               />
 
               <button

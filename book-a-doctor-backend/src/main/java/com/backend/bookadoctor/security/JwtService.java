@@ -1,7 +1,9 @@
+
 package com.backend.bookadoctor.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -16,20 +18,21 @@ public class JwtService {
     private final long expirationTime =
             1000 * 60 * 60; // 1 hour
 
-    public JwtService() {
-        this.secretKey = System.getenv("JWT_SECRET");
+    public JwtService(@Value("${jwt.secret}") String secretKey) {
 
-        if (this.secretKey == null || this.secretKey.isBlank()) {
+        if (secretKey == null || secretKey.isBlank()) {
             throw new IllegalStateException(
-                    "JWT_SECRET environment variable is not configured"
+                    "JWT secret is missing. Configure jwt.secret in application.properties"
             );
         }
 
-        if (this.secretKey.getBytes(StandardCharsets.UTF_8).length < 32) {
+        if (secretKey.getBytes(StandardCharsets.UTF_8).length < 32) {
             throw new IllegalStateException(
-                    "JWT_SECRET must be at least 32 characters long"
+                    "JWT secret must be at least 32 bytes long"
             );
         }
+
+        this.secretKey = secretKey;
     }
 
     private SecretKey getSigningKey() {

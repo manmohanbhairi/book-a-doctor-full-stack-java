@@ -1,8 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
 
+  const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  if (pathname === "/" || pathname === "/register") {
+    return null;
+  }
 
   const user = JSON.parse(localStorage.getItem("user"));
 

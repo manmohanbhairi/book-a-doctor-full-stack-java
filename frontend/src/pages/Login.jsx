@@ -1,6 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
+import PasswordField from "../components/PasswordField";
 
 function Login() {
 
@@ -90,10 +91,7 @@ function Login() {
                 required
               />
 
-              <input
-                className="form-control mb-3"
-                type="password"
-                placeholder="Password"
+              <PasswordField
                 value={form.password}
                 disabled={isSubmitting}
                 onChange={(e) =>
@@ -102,7 +100,6 @@ function Login() {
                     password: e.target.value
                   })
                 }
-                required
               />
 
               <button
