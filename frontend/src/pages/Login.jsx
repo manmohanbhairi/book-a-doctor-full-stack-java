@@ -10,11 +10,14 @@ function Login() {
     email: "",
     password: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+    if (isSubmitting) return;
 
+    setIsSubmitting(true);
     try {
 
       const res = await API.post("/auth/login", form);
@@ -50,6 +53,8 @@ function Login() {
         "Login Failed"
       );
 
+    } finally {
+      setIsSubmitting(false);
     }
 
   };
@@ -75,6 +80,7 @@ function Login() {
                 type="email"
                 placeholder="Email"
                 value={form.email}
+                disabled={isSubmitting}
                 onChange={(e) =>
                   setForm({
                     ...form,
@@ -89,6 +95,7 @@ function Login() {
                 type="password"
                 placeholder="Password"
                 value={form.password}
+                disabled={isSubmitting}
                 onChange={(e) =>
                   setForm({
                     ...form,
@@ -101,8 +108,15 @@ function Login() {
               <button
                 type="submit"
                 className="btn btn-primary w-100"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
               >
-                Login
+                {isSubmitting ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" aria-hidden="true" />
+                    Connecting...
+                  </>
+                ) : "Login"}
               </button>
 
             </form>

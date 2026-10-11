@@ -1,21 +1,41 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import API from "../services/api";
 import { Link } from "react-router-dom";
 
 function Doctors() {
 
   const [doctors, setDoctors] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [quickFilter, setQuickFilter] = useState("All");
 
-  useEffect(() => {
+  const loadDoctors = useCallback(async (signal) => {
+    setIsLoading(true);
+    setLoadError("");
 
-    API.get("/doctors")
-      .then((res) => setDoctors(res.data))
-      .catch((err) => console.log(err));
+    try {
+      const response = await API.get("/doctors", { signal });
+      setDoctors(response.data);
+    } catch (error) {
+      if (error.code === "ERR_CANCELED") return;
 
+      console.error("Error loading doctors:", error);
+      setLoadError("We couldn't load doctors. Check your connection and try again.");
+    } finally {
+      if (!signal?.aborted) {
+        setIsLoading(false);
+      }
+    }
   }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    loadDoctors(controller.signal);
+
+    return () => controller.abort();
+  }, [loadDoctors]);
 
   const specializations = [
     "All",
@@ -192,6 +212,24 @@ function Doctors() {
 
       {/* Doctors */}
 
+      {isLoading ? (
+        <div className="doctor-loading-state" role="status" aria-live="polite">
+          <span className="spinner-border text-primary" aria-hidden="true" />
+          <h3 className="mt-3">Finding available doctors...</h3>
+          <p>Connecting securely to the clinic directory.</p>
+        </div>
+      ) : loadError ? (
+        <div className="alert alert-info text-center p-4" role="alert">
+          <h3>Doctors are taking longer to load</h3>
+          <p>{loadError}</p>
+          <button
+            className="btn btn-primary"
+            onClick={() => loadDoctors()}
+          >
+            Try again
+          </button>
+        </div>
+      ) : (
       <div className="row">
 
         {
@@ -354,6 +392,7 @@ function Doctors() {
         }
 
       </div>
+      )}
 
     </div>
 

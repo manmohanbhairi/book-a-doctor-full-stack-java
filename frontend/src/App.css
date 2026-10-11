@@ -285,6 +285,29 @@ textarea:focus {
   margin-bottom: 0.45rem;
 }
 
+.doctor-loading-state {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 1px solid var(--blue-200);
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #e5f1ff 0%, #e8f7fb 55%, #eeefff 100%);
+  text-align: center;
+}
+
+.doctor-loading-state .spinner-border {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--blue-700) !important;
+}
+
+.doctor-loading-state p {
+  margin-bottom: 0;
+}
+
 .doctor-card p,
 .appointment-card p {
   margin-bottom: 0.55rem;
