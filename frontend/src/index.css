@@ -1,77 +1,52 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
-body{
-
-  font-family:'Segoe UI', sans-serif;
-
-  background:#f4f9ff;
-
-  color:#333;
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
 
-/* Buttons */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 10%, rgba(198, 224, 255, 0.7), transparent 34rem),
+    radial-gradient(ellipse at 88% 38%, rgba(210, 237, 250, 0.68), transparent 32rem),
+    radial-gradient(ellipse at 48% 100%, rgba(222, 229, 255, 0.62), transparent 38rem),
+    linear-gradient(135deg, #eaf3ff 0%, #eff8fc 52%, #f0f2ff 100%);
+  background-attachment: fixed;
+  color: #243b5a;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
 
 button,
-.btn{
-
-  border:none;
-
-  border-radius:25px;
-
-  padding:10px 22px;
-
-  cursor:pointer;
-
-  transition:0.3s;
-
+input,
+select,
+textarea {
+  font: inherit;
 }
 
-
-button:hover,
-.btn:hover{
-
-  transform:translateY(-2px);
-
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-
-/* Cards */
-
-.card{
-
-  background:white;
-
-  border-radius:20px;
-
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
-  border:none;
-
-}
-
-
-/* Inputs */
-
-input{
-
-  border-radius:12px!important;
-
-  padding:12px!important;
-
-  border:1px solid #ddd!important;
-
-}
-
-
-h1,h2,h3{
-
-  color:#0b5ed7;
-
+::selection {
+  background: #d7e9ff;
+  color: #123b70;
 }
